@@ -1,8 +1,8 @@
 --------------------------------------------------------------------------------
-Thank you for downloading "Watt - the First Bulbie." by calledshot
+Thank you for downloading "Simple Monster" by keyframeanim
 Released under
-Creative Commons Attribution, Share Alike 3.0
-Downloaded from http://www.blendswap.com/blends/view/70309
+Creative Commons Zero (Public Domain)
+Downloaded from http://www.blendswap.com/blends/view/70697
 
 The following is important licensing information, please keep this file for
 archival and future reference when working with the file. It's important that
@@ -18,12 +18,13 @@ at the end of the file.
 VERY IMPORTANT LICENSE INFORMATION:
 
 This blend has been released under
-Creative Commons Attribution, Share Alike 3.0
+Creative Commons Zero (Public Domain)
 
-This means that you can use it for any purpose you see fit, even commercially,
-as long as you respect these requirements:
+This means that you can use it for any purpose, provided that you comply with
+theese requirements:
 
-	--You MUST give credit to calledshot.
+	--There are no requirements for CC-0 licensed blends.	--THIS BLEND IS MARKED AS FAN ART YOU ARE NOT ALLOWED TO USE IT COMMERCIALLY.
+	--http://en.wikipedia.org/wiki/Fan_art
 
 
 ################################################################################
@@ -31,8 +32,8 @@ as long as you respect these requirements:
 
 ABOUT THE BLEND:
 
-Ready for Blender 2.67
-Published on: 2013-09-26 03:59:00
+Ready for Blender 2.68
+Published on: 2013-10-24 09:45:48
 
 --------------------------------------------------------------------------------
 
@@ -46,7 +47,7 @@ If you find anomalies in this blend or any of the contained files such as:
 	- Uncredited or incorrect use of other CC licensed works.
 	- Some other troubling issues[1].
 
-Please submit a report from  http://www.blendswap.com/blends/view/70309
+Please submit a report from  http://www.blendswap.com/blends/view/70697
 by pressing the red button with the flag, including links and details that serve
 as evidence and can help us to solve any conflicts or issues derived from the
 contents of this file.
