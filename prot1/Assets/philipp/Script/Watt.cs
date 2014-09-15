@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Watt : MonoBehaviour 
 {
+	public float range = 5.0f;
+	public float attackPower = 1.0f;
 	public bool lightOn = false;
 	public Light lightOnObj;
 	public Light lightOffObj;
@@ -27,7 +29,7 @@ public class Watt : MonoBehaviour
 
 		if (lightOn)
 		{
-			List<GameObject> creeps =  AttackLogic.GetTargetsInRange<Creep>(transform.position, 5.0f);
+			List<GameObject> creeps =  AttackLogic.GetTargetsInRange<Creep>(transform.position, range);
 			int size = attackedCreeps.Count;
 			for (int i = size - 1; i >= 0; --i)
 			{
@@ -59,12 +61,12 @@ public class Watt : MonoBehaviour
 
 	private void AttackedCreep(GameObject creep)
 	{
-		creep.GetComponentInChildren<LightningAttack>().SetAttackOn(true);
+		creep.GetComponentInChildren<LightningAttack>().SetAttackOn(true, attackPower);
 	}
 
 	private void StopAttack(GameObject creep)
 	{
-		creep.GetComponentInChildren<LightningAttack>().SetAttackOn(false);
+		creep.GetComponentInChildren<LightningAttack>().SetAttackOn(false, attackPower);
 	}
 
 	void SetLightOn(bool lo)
