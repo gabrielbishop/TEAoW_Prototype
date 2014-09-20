@@ -7,7 +7,6 @@ public class Creep : MonoBehaviour
 	public float totalLifeEnergy = 20.0f;
 
 	float damageTaken = 0.0f;
-	float currentDamageOngoing = 0.0f;
 
 	// Use this for initialization
 	void Start ()

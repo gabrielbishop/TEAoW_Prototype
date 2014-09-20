@@ -11,14 +11,20 @@ public class LightningAttack : MonoBehaviour
 	public float scale = 1f;
 	public Vector3 awayPosition = new Vector3(-999.0f,-999.0f,-999.0f);
 
-	bool attackOn = false;
-	float damage = 0.0f;
+	private bool attackOn = false;	
+	private bool hit = false;
+	private float damage = 0.0f;
 
-	Perlin noise;
-	float oneOverZigs;
+	private Perlin noise;
+	private float oneOverZigs;
 	
 	private Particle[] particles;
-	
+
+	public bool IsHit()
+	{
+		return hit;
+	}
+
 	void Start()
 	{
 		oneOverZigs = 1f / (float)zigs;
@@ -28,32 +34,36 @@ public class LightningAttack : MonoBehaviour
 		particles = particleEmitter.particles;
 	}
 	
-	void Update ()
+	void FixedUpdate()
 	{
+		hit = false;
 		if (!attackOn)
 			return;
 
 		if (noise == null)
 			noise = new Perlin();
 
-		Vector3 dir = transform.position - target.position;
-		dir.Normalize();
+		GameObject parent = transform.parent.gameObject;
+		Vector3 dir = parent.transform.position - target.position;
+		float distance = dir.magnitude;
+		dir /= distance;
 		RaycastHit rayHit = new RaycastHit();
 		Vector3 colPos;
-		if (Physics.Raycast(target.position, dir, out rayHit, 200))
+		if (Physics.Raycast(target.position, dir, out rayHit, distance))
 		{
 			colPos = rayHit.point;
-			GameObject parent = transform.parent.gameObject;
-			if (rayHit.collider.gameObject == parent)
+			if ((rayHit.collider.gameObject == parent) )
 			{
 				Creep creep = parent.GetComponent<Creep>();
 				creep.Damage(Time.deltaTime * damage);
+				hit = true;
 			}
 		}
 		else
 		{
-			colPos = transform.position;
-			GetComponent<Creep>().Damage(Time.deltaTime * damage);
+			colPos = parent.transform.position;
+			parent.GetComponentInParent<Creep>().Damage(Time.deltaTime * damage);
+			hit = true;
 		}
 
 		float timex = Time.time * speed * 0.1365143f;
