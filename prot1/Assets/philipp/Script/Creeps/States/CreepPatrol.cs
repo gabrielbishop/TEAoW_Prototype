@@ -24,6 +24,7 @@ public class CreepPatrol : com.teaow.fsm.FSMState
 	{
 		base.OnEnter();
 		agent = owner.GetComponent<NavMeshAgent>();	
+		owner.GetComponent<CharacterController>().enabled = false;
 	}
 
 	public override void Act()

@@ -23,7 +23,8 @@ public class CreepFSM : FiniteStateMachine
 	public FleeToPatrol fleeToPatrol;
 	public HuntToAttackMelee huntToAttackMelee;
 	public HuntToAttackRanged huntToAttackRanged;
-	public HuntToFlee huntToFlee;
+	public UnderAttack huntToFlee;
+	public UnderAttack patrolToFlee;
 
 	public GameObject target;
 
@@ -33,6 +34,9 @@ public class CreepFSM : FiniteStateMachine
 	{
 		creepPatrol.SetOwner(gameObject);
 		creepHunt.SetOwner(gameObject);
+		creepAttackMelee.SetOwner(gameObject);
+		creepAttackRanged.SetOwner(gameObject);
+		creepFlee.SetOwner(gameObject);
 
 		creepBlackboard.SetOwner(gameObject);
 		creepBlackboard.SetTarget(target);
@@ -43,9 +47,11 @@ public class CreepFSM : FiniteStateMachine
 		huntToAttackMelee.SetCreepBlackboard(creepBlackboard);
 		huntToAttackRanged.SetCreepBlackboard(creepBlackboard);
 		huntToFlee.SetCreepBlackboard(creepBlackboard);
+		patrolToFlee.SetCreepBlackboard(creepBlackboard);
 
 
 		creepPatrol.AddTransition(targetInRangeInSight, creepHunt);
+		creepPatrol.AddTransition(patrolToFlee, creepFlee);
 
 		creepHunt.AddTransition(targetOutOfRange, creepPatrol);
 		creepHunt.AddTransition(huntToAttackRanged, creepAttackRanged);

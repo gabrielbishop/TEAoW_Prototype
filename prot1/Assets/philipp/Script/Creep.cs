@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(HealthBar))]
@@ -25,5 +25,10 @@ public class Creep : MonoBehaviour
 	public void Damage(float damage)
 	{
 		damageTaken += damage;
+	}
+
+	public GameObject Spawn(GameObject brickPrefab)
+	{
+		return (GameObject)Instantiate(brickPrefab, transform.position, transform.rotation);
 	}
 }

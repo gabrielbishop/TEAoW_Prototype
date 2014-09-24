@@ -8,6 +8,7 @@ public class CreepHunt : com.teaow.fsm.FSMState
 	public float threshhold = 0.5f;
 	public float newPathDistance = 2.0f;
 	private NavMeshAgent agent;
+	private Vector3 oldDestination = Vector3.zero;
 	
 	public CreepHunt()
 	{
@@ -20,7 +21,6 @@ public class CreepHunt : com.teaow.fsm.FSMState
 		owner = o;
 	}
 
-	private Vector3 oldDestination = Vector3.zero;
 	
 	public override void OnEnter()
 	{
